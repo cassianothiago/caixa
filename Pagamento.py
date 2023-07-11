@@ -1,5 +1,5 @@
 def pagamento():
-    from os
+    from os import system
     print('-----')
     print('Bem vindo ao Pagamento')
     print('-----')
@@ -77,8 +77,11 @@ def pagamento():
                 troco=troco-retorno
                 print('Troco= ',troco)
                 if troco==0:
+                    system('pause')
+                    system('cls')
                     break
-                                        
+        system('pause')
+        system('cls')                                
             
                     
                     
