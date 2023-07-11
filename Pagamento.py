@@ -9,6 +9,7 @@ def pagamento():
     list_conta=[]
     list_atraso=[]
     list_valor=[]
+    list_valor_final=[]
     while True:
         try:
             cliente=input('Digite o nome do cliente ou zero para encerrar: ')
@@ -54,35 +55,36 @@ def pagamento():
                                 list_valor.append(valor)
                         if atraso==0:
                             list_valor.append(conta)
-                            valor_final=sum(list_valor)            
-        try:
-            print('-----')
-            print('Valor total das contas = ',valor_final)
-            print('-----')
-            dinheiro=float(input('Valor repassado do cliente $: '))
-            troco=dinheiro-valor_final
-            print('-----')
-            print('troco = ',troco)
-            print('-----')
-        except ValueError:
-            print('valor repassado invalido')
-        except:
-            print('Erro repasse')
-        else:
-                        
-            if dinheiro<valor_final:
-                print('Repasse a menor')
-            while dinheiro>valor_final:
-                retorno=float(input('Troco para o cliente: '))
-                troco=troco-retorno
-                print('Troco= ',troco)
-                if troco==0:
-                    system('pause')
-                    system('cls')
-                    break
+                            valor_final=sum(list_valor)
+                            list_valor_final.append(valor_final)
+                                    
+            try:
+                print('-----')
+                print('Valor total das contas = ',valor_final)
+                print('-----')
+                dinheiro=float(input('Valor repassado do cliente $: '))
+                troco=dinheiro-valor_final
+                print('-----')
+                print('troco = ',troco)
+                print('-----')
+            except ValueError:
+                print('valor repassado invalido')
+            except:
+                print('Erro repasse')    
+            else:            
+                if dinheiro<valor_final:
+                    print('Repasse a menor')
+                while dinheiro>valor_final:
+                    retorno=float(input('Troco para o cliente: '))
+                    troco=troco-retorno
+                    print('Troco= ',troco)
+                    if troco==0:
+                        break
+                list_conta.clear()
+                list_valor.clear()
         system('pause')
         system('cls')                                
-            
+                    
                     
                     
 pagamento()    
