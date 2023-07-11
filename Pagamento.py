@@ -35,31 +35,38 @@ def pagamento():
                     if conta==0:
                         cont=0
                         break
-                    list_conta.append(conta)    
-                    try:
-                        atraso=int(input('Digite quantos dias a conta do cliente {} está atrasada '.format(cliente)))
-                    except ValueError:
-                        print('Dias de atraso invalido')
-                    except:
-                        print('Erro atrasdo')
-                    else:
-                        list_atraso.append(atraso)
-                        if atraso>0:
+                    list_conta.append(conta)
+                    
+                    while True:
                             try:
-                                multa=float(input('Valor da multa = '))
-                                juros=float(input('Valor dos juros = '))
+                                atraso=int(input('Digite quantos dias a conta do cliente {} está atrasada '.format(cliente)))
+                                atraso1=True
                             except ValueError:
-                                print('Multa e juros invalidos')
+                                print('Dias de atraso invalido')
+                                atraso1=False
                             except:
-                                print('Erro multa juros')
+                                print('Erro atrasado')
+                                atraso1=False
                             else:
-                                valor=conta+(conta*(multa/100)+conta*(atraso*(juros/100)))
-                                list_valor.append(valor)
-                        if atraso==0:
-                            list_valor.append(conta)
-                            valor_final=sum(list_valor)
-                            list_valor_final.append(valor_final)
-                                    
+                                list_atraso.append(atraso)
+                                
+                                if atraso>0 and atraso1==True:
+                                    try:
+                                        multa=float(input('Valor da multa = '))
+                                        juros=float(input('Valor dos juros = '))
+                                    except ValueError:
+                                        print('Multa e juros invalidos')
+                                    except:
+                                        print('Erro multa juros')
+                                    else:
+                                        valor=conta+(conta*(multa/100)+conta*(atraso*(juros/100)))
+                                        list_valor.append(valor)
+                                        break
+                                if atraso==0 and atraso1==True:
+                                    list_valor.append(conta)
+                                    valor_final=sum(list_valor)
+                                    list_valor_final.append(valor_final)
+                                    break                            
             try:
                 print('-----')
                 print('Valor total das contas = ',valor_final)
@@ -67,7 +74,7 @@ def pagamento():
                 dinheiro=float(input('Valor repassado do cliente $: '))
                 troco=dinheiro-valor_final
                 print('-----')
-                print('troco = ',troco)
+                print('troco = {:.2f}'.format(troco))
                 print('-----')
             except ValueError:
                 print('valor repassado invalido')
@@ -79,7 +86,7 @@ def pagamento():
                 while dinheiro>valor_final:
                     retorno=float(input('Troco para o cliente: '))
                     troco=troco-retorno
-                    print('Troco= ',troco)
+                    print('Troco= {:.2f}'.format(troco))
                     if troco==0:
                         break
                 list_conta.clear()
