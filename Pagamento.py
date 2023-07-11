@@ -24,18 +24,20 @@ def pagamento():
             while True:
                 try:    
                     cont=cont+1
-                    conta=float(input('Digite o valor da {}ª conta do cliente {} ou zero para encerrar: '.format(cont,cliente)))
+                    conta=float(input('Digite o valor da conta do cliente {} ou zero para encerrar: '.format(cliente)))
                 except ValueError:
                     print('Valor da conta invalido')
+                    cont=0
                 except:
                     print('Erro conta')
+                    cont=0
                 else:
                     if conta==0:
                         cont=0
                         break
                     list_conta.append(conta)    
                     try:
-                        atraso=int(input('Digite quantos dias a {}ª conta do cliente {} está atrasada '.format(cont,cliente)))
+                        atraso=int(input('Digite quantos dias a conta do cliente {} está atrasada '.format(cliente)))
                     except ValueError:
                         print('Dias de atraso invalido')
                     except:
