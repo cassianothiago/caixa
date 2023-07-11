@@ -64,3 +64,4 @@ def pagamento():
     print(list_cliente)
     print(list_conta)
 pagamento()
+print(list)
