@@ -88,10 +88,11 @@ def pagamento():
                     troco=troco-retorno
                     print('Troco= {:.2f}'.format(troco))
                     if troco==0:
+                        list_conta.clear()
+                        list_valor.clear()
                         break
                 
-                list_conta.clear()
-                list_valor.clear()
+                    
         system('pause')
         system('cls')                                
                     
