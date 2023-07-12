@@ -80,7 +80,7 @@ def pagamento():
                 print('valor repassado invalido')
             except:
                 print('Erro repasse')    
-            else:            
+            else:          
                 if dinheiro<valor_final:
                     print('Repasse a menor')
                 while dinheiro>valor_final:
@@ -89,6 +89,7 @@ def pagamento():
                     print('Troco= {:.2f}'.format(troco))
                     if troco==0:
                         break
+                
                 list_conta.clear()
                 list_valor.clear()
         system('pause')
