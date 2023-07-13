@@ -51,17 +51,26 @@ def pagamento():
                                 list_atraso.append(atraso)
                                 
                                 if atraso>0 and atraso1==True:
-                                    try:
-                                        multa=float(input('Valor da multa = '))
-                                        juros=float(input('Valor dos juros = '))
-                                    except ValueError:
-                                        print('Multa e juros invalidos')
-                                    except:
-                                        print('Erro multa juros')
-                                    else:
-                                        valor=conta+(conta*(multa/100)+conta*(atraso*(juros/100)))
-                                        list_valor.append(valor)
-                                        break
+                                    multa=False
+                                    juros=False
+                                    while multa==False and juros==False:
+                                        try:
+                                            multa=float(input('Valor da multa = '))
+                                            juros=float(input('Valor dos juros = '))
+                                            multa==True
+                                            juros==True
+                                        except ValueError:
+                                            print('Multa e juros invalidos')
+                                            multa==False
+                                            juros==False
+                                        except:
+                                            print('Erro multa juros')
+                                            multa==False
+                                            juros==False
+                                        else:
+                                            valor=conta+(conta*(multa/100)+conta*(atraso*(juros/100)))
+                                            list_valor.append(valor)
+                                            break
                                 if atraso==0 and atraso1==True:
                                     list_valor.append(conta)
                                     valor_final=sum(list_valor)
