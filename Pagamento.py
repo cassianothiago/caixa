@@ -98,11 +98,18 @@ def pagamento():
                         break
                 list_conta.clear()
                 list_valor.clear()
-                            
+        system('pause')
+        system('cls')                
                         
-                            
-                system('pause')
-                system('cls')                                
+        imprimir=(input('Digite I para imprimir a fita de caixa ou o nome do cliente para imprimir específico:  ')) 
+        if imprimir =='I' or imprimir=='i':
+            print(list_cliente)
+            print(list_atraso)
+            print(list_valor_final)
+        else:
+            
+              
+                                            
                             
 pagamento()    
     
