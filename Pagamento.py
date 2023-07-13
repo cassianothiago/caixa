@@ -73,12 +73,12 @@ def pagamento():
                                             break
                                 if atraso==0 and atraso1==True:
                                     list_valor.append(conta)
-                                    valor_final=sum(list_valor)
-                                    list_valor_final.append(valor_final)
-                                    break                            
+                                    break                                                                
             try:
+                valor_final=sum(list_valor)
+                list_valor_final.append(valor_final)
                 print('-----')
-                print('Valor total das contas = ',valor_final)
+                print('Valor total das contas = {:.2f}'.format(valor_final))  
                 print('-----')
                 dinheiro=float(input('Valor repassado do cliente $: '))
                 troco=dinheiro-valor_final
@@ -90,22 +90,35 @@ def pagamento():
             except:
                 print('Erro repasse')    
             else:          
-                if dinheiro<valor_final:
+                while dinheiro<valor_final:
                     print('Repasse a menor')
+                    print('Devolva o dinheiro e repita o repasse do cliente')
+                    print('-----')
+                    dinheiro=float(input('Valor repassado do cliente $: '))
+                    troco=dinheiro-valor_final
+                    print('-----')
+                    print('troco = {:.2f}'.format(troco))
+                    print('-----')
                 while dinheiro>valor_final:
                     retorno=float(input('Troco para o cliente: '))
                     troco=troco-retorno
                     print('Troco= {:.2f}'.format(troco))
                     if troco==0:
-                        list_conta.clear()
-                        list_valor.clear()
                         break
-                
-                    
+                list_conta.clear()
+                list_valor.clear()
         system('pause')
-        system('cls')                                
-                    
-                    
-                    
+        system('cls')                
+                        
+        imprimir=(input('Digite I para imprimir a fita de caixa ou o nome do cliente para imprimir específico:  ')) 
+        if imprimir =='I' or imprimir=='i':
+            print(list_cliente)
+            print(list_atraso)
+            print(list_valor_final)
+        else:
+            
+              
+                                            
+                            
 pagamento()    
     
