@@ -116,7 +116,7 @@ def pagamento():
                         print(list_atraso)
                         print(list_valor_final)
                     else:
-                        for i in len(imprimir) in list_cliente:
+                        for i in range(len(imprimir)):
                             print(list_cliente[i])
                             print(list_atraso[i])
                             print(list_valor_final[i])
