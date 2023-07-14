@@ -39,39 +39,44 @@ def pagamento():
                         break
                     list_conta.append(conta)
                     while True:
-                            try:
-                                atraso=int(input('Digite quantos dias a conta do cliente {} está atrasada '.format(cliente)))
-                                atraso1=True
-                            except ValueError:
-                                print('Dias de atraso invalido')
-                                atraso1=False
-                            except:
-                                print('Erro atrasado')
-                                atraso1=False
-                            else:
-                                list_atraso.append(atraso)
-                                if atraso>0 and atraso1==True:
-                                    while multa==False and juros==False:
-                                        try:
-                                            multa=float(input('Valor da multa = '))
-                                            juros=float(input('Valor dos juros = '))
-                                            multa==True
-                                            juros==True
-                                        except ValueError:
-                                            print('Multa e juros invalidos')
-                                            multa==False
-                                            juros==False
-                                        except:
-                                            print('Erro multa juros')
-                                            multa==False
-                                            juros==False
-                                        else:
-                                            valor=conta+(conta*(multa/100)+conta*(atraso*(juros/100)))
-                                            list_valor.append(valor)
-                                            break
-                                if atraso==0 and atraso1==True:
-                                    list_valor.append(conta)
-                                    break                                                                
+                        try:
+                            atraso=int(input('Digite quantos dias a conta do cliente {} está atrasada '.format(cliente)))
+                            atraso1=True
+                        except ValueError:
+                            print('Dias de atraso invalido')
+                            atraso1=False
+                        except:
+                            print('Erro atrasado')
+                            atraso1=False
+                        finally:
+                            list_atraso.append(atraso)
+                            if atraso>0 and atraso1==True:
+                                while multa==False and juros==False:
+                                    try:
+                                        multa=float(input('Valor da multa = '))
+                                        juros=float(input('Valor dos juros = '))
+                                        multa==True
+                                        juros==True
+                                    except ValueError:
+                                        print('Multa e juros invalidos')
+                                        multa==False
+                                        juros==False
+                                    except:
+                                        print('Erro multa juros')
+                                        multa==False
+                                        juros==False
+                                    finally:
+                                        valor=conta+(conta*(multa/100)+conta*(atraso*(juros/100)))
+                                        list_valor.append(valor)
+                                        multa==True
+                                        juros==True
+                                        break
+                            elif atraso==0 and atraso1==True:
+                                multa==True
+                                juros==True
+                                list_valor.append(conta)
+                                break                                                                
+                        break        
             try:
                 valor_final=sum(list_valor)
                 list_valor_final.append(valor_final)
@@ -108,24 +113,25 @@ def pagamento():
         system('pause')
         system('cls')                
     while True:            
-        imprimir=(input('Digite I para imprimir a fita de caixa ou o nome do cliente para imprimir específico e zero para fechar pagamento:  ')) 
-        if imprimir=='0':
-            break
-        if imprimir =='I' or imprimir=='i':
-            print(list_cliente)
-            print(list_atraso)
-            print(list_valor_final)
-        else:
-            try:
-                for i in range(len(imprimir)):
-                    print(list_cliente[i])
-                    print(list_atraso[i])
-                    print(list_valor_final[i])
-            except ValueError:
-                print('cliente não encontrado')
-            except:
-                print('cliente inválido!')
-                        
+            imprimir=(input('Digite I para imprimir a fita de caixa ou o nome do cliente para imprimir específico e zero para fechar pagamento:  ')) 
+            if imprimir=='0':
+                break
+            if imprimir =='I' or imprimir=='i':
+                print(list_cliente)
+                print(list_atraso)
+                print(list_valor_final)
+            else:
+                try:
+                    a=list_cliente.index(imprimir)
+                    print(a)
+                    print(list_cliente[a])
+                    print(list_atraso[a])
+                    print(list_valor_final[a])
+                except ValueError:
+                    print('cliente não encontrado')
+                except:
+                    print('cliente inválido!')
+                            
                 
               
                                             
