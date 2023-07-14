@@ -5,6 +5,8 @@ def pagamento():
     print('-----')
     
     cont=0
+    multa=False
+    juros=False
     list_cliente=[]
     list_conta=[]
     list_atraso=[]
@@ -36,7 +38,6 @@ def pagamento():
                         cont=0
                         break
                     list_conta.append(conta)
-                    
                     while True:
                             try:
                                 atraso=int(input('Digite quantos dias a conta do cliente {} está atrasada '.format(cliente)))
@@ -49,10 +50,7 @@ def pagamento():
                                 atraso1=False
                             else:
                                 list_atraso.append(atraso)
-                                
                                 if atraso>0 and atraso1==True:
-                                    multa=False
-                                    juros=False
                                     while multa==False and juros==False:
                                         try:
                                             multa=float(input('Valor da multa = '))
@@ -110,15 +108,15 @@ def pagamento():
         system('pause')
         system('cls')                
                         
-        imprimir=(input('Digite I para imprimir a fita de caixa ou o nome do cliente para imprimir específico:  ')) 
+        '''imprimir=(input('Digite I para imprimir a fita de caixa ou o nome do cliente para imprimir específico:  ')) 
         if imprimir =='I' or imprimir=='i':
             print(list_cliente)
             print(list_atraso)
             print(list_valor_final)
-        else:
+        else:'''
             
               
                                             
-                            
+
 pagamento()    
     
