@@ -18,7 +18,21 @@ class Conta_Atraso(Pagamento):
         else:
             print('valor da conta inválido')
             
-        
+class Troco():
+    def dev_troco(self,valor,dinheiro):
+        troco=dinheiro-valor
+        print(troco)
+        while troco!=0:
+            dinheiro=float(input('Valor a receber: '))
+            troco=troco-dinheiro
+            print(troco)
+            if troco==0:
+                print(troco)
+                break
+        if troco==0:
+            print(troco)
+                
+            
     
         
             
