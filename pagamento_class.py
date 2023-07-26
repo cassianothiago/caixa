@@ -9,14 +9,13 @@ class Conta_Atraso(Pagamento):
     def __init__(self, nome, conta, atraso):
         super().__init__(nome, conta, atraso)
     
-    def atraso(self,multa,juros):
-        if self.atraso>0:
-            self.conta=self.conta*(multa/100)+self.conta*(self.atraso*(juros/100))
-            return self.conta
-        elif self.atraso==0:
-            return self.conta
-        else:
-            print('valor da conta inválido')
+    def com_atraso(self,multa,juros):
+        self.conta=self.conta*(multa/100)+self.conta*(self.atraso*(juros/100))
+        return self.conta
+        
+class Conta_em_dia(Pagamento):
+    def __init__(self, nome, conta, atraso):
+        super().__init__(nome, conta, atraso)
             
 class Troco():
     def dev_troco(self,valor,dinheiro):
