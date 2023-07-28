@@ -1,26 +1,26 @@
 class Pagamento():
-    def __init__(self,nome,conta,atraso):
-        self.nome=nome
+    def __init__(self,conta,atraso):
         self.conta=conta
         self.atraso=atraso
         
 
 class Conta_Atraso(Pagamento):
-    def __init__(self, nome, conta, atraso):
-        super().__init__(nome, conta, atraso)
+    def __init__(self, conta, atraso):
+        super().__init__(conta, atraso)
     
-    def com_atraso(self,multa,juros):
-        self.conta=self.conta*(multa/100)+self.conta*(self.atraso*(juros/100))
-        return self.conta
+    def com_atraso(self,conta,multa,juros,atraso):
+        atraso=self.atraso
+        conta=self.conta*(multa/100)+(self.conta*juros/100)*atraso
+        return conta
         
 class Conta_em_dia(Pagamento):
-    def __init__(self, nome, conta, atraso):
-        super().__init__(nome, conta, atraso)
+    def __init__(self,conta, atraso):
+        super().__init__(conta, atraso)
         
-    def sem_atraso(self,conta):
-        self.atraso==0
-        self.conta=conta    
-        return self.conta
+        
+    def sem_atraso(self,conta): 
+        conta=self.conta  
+        return conta
             
 '''class Troco():
     def dev_troco(self,valor,dinheiro):
