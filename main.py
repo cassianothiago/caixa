@@ -46,7 +46,7 @@ while True:
                             print('Erro Multa e Juros')
                         else:  
                             atrasado=Conta_Atraso
-                            atrasado.com_atraso(contas,multa,juros,dias)
+                            atrasado.com_atraso(contas,dias,multa,juros)
                             list_contas.append(contas)
     
     print(sum(list_contas))
