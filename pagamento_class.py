@@ -8,7 +8,7 @@ class Conta_Atraso(Pagamento):
     def __init__(self, conta, atraso):
         super().__init__(conta, atraso)
     
-    def com_atraso(self,conta,multa,juros,atraso):
+    def com_atraso(self,conta,atraso,multa,juros):
         atraso=self.atraso
         conta=self.conta*(multa/100)+(self.conta*juros/100)*atraso
         return conta
