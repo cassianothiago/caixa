@@ -16,8 +16,13 @@ class Conta_Atraso(Pagamento):
 class Conta_em_dia(Pagamento):
     def __init__(self, nome, conta, atraso):
         super().__init__(nome, conta, atraso)
+        
+    def sem_atraso(self,conta):
+        self.atraso==0
+        self.conta=conta    
+        return self.conta
             
-class Troco():
+'''class Troco():
     def dev_troco(self,valor,dinheiro):
         troco=dinheiro-valor
         print(troco)
@@ -29,7 +34,7 @@ class Troco():
                 print(troco)
                 break
         if troco==0:
-            print(troco)
+            print(troco)'''
                 
             
     
